@@ -1,0 +1,17 @@
+event onLoad(){
+    print("===========================");
+    print("Money UI");
+    print("Script by LFPlugins");
+    print("===========================");
+}
+
+event onPlayerJoined(player){
+    player.effects.sendUI(12123, 21, toString(player.experience));
+}
+
+event onInterval(10){
+    foreach(player in server.players){
+        player.effects.clearUIById(12123);
+        player.effects.sendUI(12123, 21, toString(player.experience));
+    }
+}
